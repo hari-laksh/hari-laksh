@@ -1,0 +1,90 @@
+:root {
+  --height: 70vh;
+  --color-poor: linear-gradient(
+    0deg,
+    rgba(181, 0, 0, 1) 0%,
+    rgba(176, 3, 3, 1) 12%,
+    rgba(255, 105, 105, 1) 100%
+  );
+  --color-fair: linear-gradient(
+    0deg,
+    rgba(181, 136, 0, 1) 0%,
+    rgba(176, 130, 3, 1) 12%,
+    rgba(255, 233, 105, 1) 100%
+  );
+  --color-good: linear-gradient(
+    0deg,
+    rgba(25, 157, 1, 1) 0%,
+    rgba(32, 166, 1, 1) 18%,
+    rgba(123, 255, 105, 1) 100%
+  );
+  --color-empty: linear-gradient(
+    0deg,
+    rgba(162, 162, 162, 1) 0%,
+    rgba(195, 195, 195, 1) 26%,
+    rgba(241, 241, 241, 1) 100%
+  );
+}
+
+body {
+  background: #0f1c2c;
+  width: 100vw;
+  height: 100vh;
+}
+
+.widget-wrapper {
+  display: flex;
+  padding: 5px;
+  font-family: "Sans-Serif";
+  align-items: center;
+}
+
+img {
+  height: calc(var(--height) + 5px);
+}
+
+#bandwidth {
+  line-height: var(--height);
+  margin-left: 5px;
+  margin-top: 2px;
+  color: #ffffff;
+  font-size: 5vw;
+}
+
+#bandwidth.hidden {
+  display: none;
+}
+
+#signal-strength {
+  padding: 10px;
+  display: flex;
+}
+
+.signal-strength-bar {
+  width: calc(var(--height) * 0.6);
+  height: var(--height);
+  margin-left: 3px;
+  border-radius: 5px;
+  box-shadow: -2px 4px 4px -3px #aaa;
+  background: var(--color-empty);
+}
+
+#signal-strength.score1 .signal-strength-bar:first-child {
+  background: var(--color-poor);
+}
+
+#signal-strength.score2 .signal-strength-bar:nth-child(-n + 2) {
+  background: var(--color-fair);
+}
+
+#signal-strength.score3 .signal-strength-bar:nth-child(-n + 3) {
+  background: var(--color-fair);
+}
+
+#signal-strength.score4 .signal-strength-bar:nth-child(-n + 4) {
+  background: var(--color-good);
+}
+
+#signal-strength.score5 .signal-strength-bar:nth-child(-n + 5) {
+  background: var(--color-good);
+}
